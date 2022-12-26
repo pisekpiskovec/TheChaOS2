@@ -35,10 +35,12 @@ function startMessage() {
 
   return rarity.msg;
 }
+const { loadCommands } = require("../../handlers/commandHandler");
 module.exports = {
   name: "ready",
   once: true,
-  execute() {
+  execute(client) {
+    loadCommands(client);
     console.log(`Cyclops: ${startMessage()}`);
   },
 };

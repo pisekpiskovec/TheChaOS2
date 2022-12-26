@@ -17,8 +17,8 @@ const client = new Client({
 const { loadEvents } = require("./handlers/eventHandler");
 
 client.events = new Collection();
+client.commands = new Collection();
 loadEvents(client);
-
 
 client.on("messageCreate", (message) => {
   if (message.content == "|m") {
