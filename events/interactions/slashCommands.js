@@ -1,4 +1,5 @@
 const { ChatInputCommandInteraction } = require("discord.js");
+var botSettings = require("../../settings.json");
 module.exports = {
   name: "interactionCreate",
   /**
@@ -13,9 +14,9 @@ module.exports = {
         content: "This command is outdated.",
         ephemeral: true,
       });
-    if (command.developer && interaction.user.id !== "336883838208966656")
+    if (command.developer && interaction.user.id !== botSettings.devUserID)
       return interaction.reply({
-        content: "This command is only for Piseko <3",
+        content: `This command is only for ${botSettings.devUserInfo.devUserNickname}`,
         ephemeral: true,
       });
     command.execute(interaction, client);

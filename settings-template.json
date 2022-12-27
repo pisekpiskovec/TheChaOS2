@@ -1,12 +1,14 @@
 {
-  "devUserID": "",
   "botAvatarImg": {
-    "file_path": "",
-    "file_type": "image/unknown"
+    "file_path": ""
   },
   "botCoreVersion": "1.0",
   "botVersion": "2.",
   "botCommanderVersion": "1.0",
   "botEHSVersion": "2.0",
-  "botCyclopsVersion": "1.5"
+  "botCyclopsVersion": "1.5",
+  "devUserInfo": {
+    "devUserID": "",
+    "devUserNickname": ""
+  }
 }
