@@ -14,7 +14,7 @@ module.exports = {
         content: "This command is outdated.",
         ephemeral: true,
       });
-    if (command.developer && interaction.user.id !== botSettings.devUserID)
+    if (command.developer && interaction.user.id !== botSettings.devUserInfo.devUserID)
       return interaction.reply({
         content: `This command is only for ${botSettings.devUserInfo.devUserNickname}`,
         ephemeral: true,
