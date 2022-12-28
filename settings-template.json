@@ -1,7 +1,7 @@
 {
   "botAvatarImg": {
-    "file_path": "./resources/alpha1.jpg",
-    "imageColor": "#77516d"
+    "file_path": "./resources/alpha2.jpg",
+    "imageColor": "#60646f"
   },
   "devUserInfo": {
     "devUserID": "",
@@ -9,10 +9,10 @@
   },
   "botVersions": {
     "botCore": "1.0",
-    "botChaOS": "2.0a1",
+    "botChaOS": "2.0a2",
     "botCommander": "1.0",
     "botEventHandleringSystem": "2.0",
     "botCyclops": "1.5.1",
-    "botCodename": "African Daisy"
+    "botCodename": "Agapanthus"
   }
 }

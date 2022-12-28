@@ -34,6 +34,6 @@ client
   .login(process.env.TOKEN)
   .then(() => {
     client.user.setAvatar(botSettings.botAvatarImg.file_path);
-    client.user.setUsername("The ChaOS 2nd Generation");
-    client.user.setActivity("Pisek", { type: ActivityType.Listening });
+    client.user.setUsername("The ChaOS");
+    
   });
