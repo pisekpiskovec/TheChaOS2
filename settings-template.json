@@ -2,13 +2,15 @@
   "botAvatarImg": {
     "file_path": ""
   },
-  "botCoreVersion": "1.0",
-  "botVersion": "2.",
-  "botCommanderVersion": "1.0",
-  "botEHSVersion": "2.0",
-  "botCyclopsVersion": "1.5",
   "devUserInfo": {
     "devUserID": "",
     "devUserNickname": ""
+  },
+  "botVersions": {
+    "botCore": "1.0",
+    "botChaOS": "2.0",
+    "botCommander": "1.",
+    "botEventHandleringSystem": "2.0",
+    "botCyclops": "1.5.1"
   }
 }

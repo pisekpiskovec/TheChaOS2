@@ -23,7 +23,7 @@ async function loadEvents(client) {
     table.addRow(event.name, "Online");
   });
   return console.log(
-    "Event Handlering System > Status: Online\nEHS: \n",
+    "Event Handlering System > Status: Online\nEvent Handlering System: \n",
     table.toString()
   );
 }
