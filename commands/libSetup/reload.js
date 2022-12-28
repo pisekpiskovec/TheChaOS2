@@ -6,11 +6,10 @@ const {
 const { loadCommands } = require("../../handlers/commandHandler");
 const { loadEvents } = require("../../handlers/eventHandler");
 module.exports = {
-    developer: true,
     data: new SlashCommandBuilder()
         .setName("reload")
         .setDescription("Reloads the Commander or Event Handlering System.")
-        //.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+        .setDefaultMemberPermissions(PermissionFlagsBits.ViewAuditLog)
         .addSubcommand((options) => options
             .setName("ehs")
             .setDescription("Reloads Event Handlering System."))

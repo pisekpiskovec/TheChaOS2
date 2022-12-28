@@ -2,7 +2,6 @@ const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder } = requi
 var botSettings = require("../../settings.json");
 
 module.exports = {
-    developer: true,
     data: new SlashCommandBuilder()
         .setName("help")
         .setDescription("Shows all shell-supported commands."),
