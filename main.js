@@ -38,8 +38,4 @@ client
     client.user.setActivity("Pisek", { type: ActivityType.Listening });
     //client.user.setActivity("Pisek", {type: ActivityType.Competing});
     //client.user.setActivity("Nora", {type: ActivityType.Watching});
-  })
-  .catch((err) => {
-    console.log("Cyclops: Captain, some systems need attention!");
-    console.log(`Cyclops > ${err}`);
   });
