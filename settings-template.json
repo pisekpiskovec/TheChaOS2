@@ -8,9 +8,10 @@
   },
   "botVersions": {
     "botCore": "1.0",
-    "botChaOS": "2.0",
-    "botCommander": "1.",
+    "botChaOS": "2.0a1",
+    "botCommander": "1.0",
     "botEventHandleringSystem": "2.0",
-    "botCyclops": "1.5.1"
+    "botCyclops": "1.5.1",
+    "botCodename": "African Daisy"
   }
 }
