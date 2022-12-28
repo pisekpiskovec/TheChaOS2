@@ -1,6 +1,7 @@
 {
   "botAvatarImg": {
-    "file_path": ""
+    "file_path": "",
+    "imageColor": "#77516d"
   },
   "devUserInfo": {
     "devUserID": "",
