@@ -11,7 +11,7 @@
     "botCore": "1.0",
     "botChaOS": "2.0a2",
     "botCommander": "1.0",
-    "botEventHandleringSystem": "2.0",
+    "botEventHandlingSystem": "2.0",
     "botCyclops": "1.5.1",
     "botCodename": "Agapanthus"
   }

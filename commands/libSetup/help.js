@@ -14,7 +14,7 @@ module.exports = {
             .setColor(botSettings.botAvatarImg.imageColor)
             .setTitle("Help command")
             .addFields(
-                { name: "**From library:** libSetup", value: '`pong` - Will respond with ping\n`reload` - Reloads the Commander or Event Handlering System.\n`about` - About The ChaOS\n`help` - Shows all shell-supported commands.' }
+                { name: "**From library:** libSetup", value: '`pong` - Will respond with ping\n`reload` - Reloads the Commander or Event Handling System.\n`about` - About The ChaOS\n`help` - Shows all shell-supported commands.' }
             );
 
 

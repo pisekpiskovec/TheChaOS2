@@ -8,11 +8,11 @@ const { loadEvents } = require("../../handlers/eventHandler");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("reload")
-        .setDescription("Reloads the Commander or Event Handlering System.")
+        .setDescription("Reloads the Commander or Event Handling System.")
         .setDefaultMemberPermissions(PermissionFlagsBits.ViewAuditLog)
         .addSubcommand((options) => options
             .setName("ehs")
-            .setDescription("Reloads Event Handlering System."))
+            .setDescription("Reloads Event Handling System."))
         .addSubcommand((options) => options
             .setName("commander")
             .setDescription("Reloads Commander.")),
@@ -26,12 +26,12 @@ module.exports = {
         switch (subCommand) {
             case "ehs":
                 {
-                    console.log(`EHS > Status: Reloading`);
+                    console.log(`Event Handling System > Status: Reloading`);
                     for (const [key, value] of client.events)
                         client.removeListener(`${key}`, value, true);
                     loadEvents(client);
                     interaction.reply({
-                        content: "Event Handlering System > Status: Reloaded",
+                        content: "Event Handling System > Status: Reloaded",
                     });
                 }
                 break;

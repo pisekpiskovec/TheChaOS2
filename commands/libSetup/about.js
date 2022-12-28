@@ -26,7 +26,7 @@ A Discord bot written in JavaScript with some useful features (originaly made fo
                 { name: "Library", value: `Discord.js ${nodeVersions.dependencies["discord.js"]}`, inline: true },
                 { name: "The ChaOS Version", value: botSettings.botVersions.botChaOS + ` "${botSettings.botVersions.botCodename}"`, inline: true },
                 { name: "Commander Version", value: botSettings.botVersions.botCommander, inline: true },
-                { name: "Event Handlering System Version", value: botSettings.botVersions.botEventHandleringSystem, inline: true },
+                { name: "Event Handling System Version", value: botSettings.botVersions.botEventHandlingSystem, inline: true },
                 { name: "The Cyclops Version", value: botSettings.botVersions.botCyclops, inline: true },
                 //{ name: "\u200B", value: "\u200B" },
 
