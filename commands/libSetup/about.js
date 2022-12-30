@@ -5,6 +5,9 @@ const {
 } = require("discord.js");
 var botSettings = require("../../settings.json");
 var nodeVersions = require("../../package.json");
+const memoryData = process.memoryUsage();
+
+function bytesToMB(bytes) { const mb = bytes / 1024 ** 2; return mb.toFixed(0) + " MB"; }
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -28,8 +31,8 @@ A Discord bot written in JavaScript with some useful features (originaly made fo
                 { name: "Commander Version", value: botSettings.botVersions.botCommander, inline: true },
                 { name: "Event Handling System Version", value: botSettings.botVersions.botEventHandlingSystem, inline: true },
                 { name: "The Cyclops Version", value: botSettings.botVersions.botCyclops, inline: true },
-                //{ name: "\u200B", value: "\u200B" },
-
+                { name: "\u200B", value: "\u200B" },
+                { name: "Memory Usage", value: `RSS: ${bytesToMB(memoryData.rss)}, External: ${bytesToMB(memoryData.external)}, Heap (Used): ${bytesToMB(memoryData.heapUsed)}, Heap (Total): ${bytesToMB(memoryData.heapTotal)}`}
             )
         interaction.reply({ embeds: [aboutEmbed] });
     },
