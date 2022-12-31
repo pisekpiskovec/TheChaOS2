@@ -14,5 +14,9 @@
     "botEventHandlingSystem": "2.0",
     "botCyclops": "1.5.1",
     "botCodename": "Agapanthus"
+  },
+  "libRole": {
+    "roleAutoToggle": false,
+    "roleAutoRole": ""
   }
 }
