@@ -26,13 +26,19 @@ A Discord bot written in JavaScript with some useful features (originaly made fo
             .setAuthor({ name: "Písek Pískovec", iconURL: "https://avatars.githubusercontent.com/u/77384152?v=4", url: "https://github.com/pisekpiskovec" })
             .setColor(botSettings.botAvatarImg.imageColor)
             .addFields(
-                { name: "Library", value: `Discord.js ${nodeVersions.dependencies["discord.js"]}`, inline: true },
                 { name: "The ChaOS Version", value: botSettings.botVersions.botChaOS + ` "${botSettings.botVersions.botCodename}"`, inline: true },
                 { name: "Commander Version", value: botSettings.botVersions.botCommander, inline: true },
                 { name: "Event Handling System Version", value: botSettings.botVersions.botEventHandlingSystem, inline: true },
                 { name: "The Cyclops Version", value: botSettings.botVersions.botCyclops, inline: true },
                 { name: "\u200B", value: "\u200B" },
-                { name: "Memory Usage", value: `RSS: ${bytesToMB(memoryData.rss)}, External: ${bytesToMB(memoryData.external)}, Heap (Used): ${bytesToMB(memoryData.heapUsed)}, Heap (Total): ${bytesToMB(memoryData.heapTotal)}`}
+                { name: "Memory Usage", value: `RSS: ${bytesToMB(memoryData.rss)}, External: ${bytesToMB(memoryData.external)}, Heap (Used): ${bytesToMB(memoryData.heapUsed)}, Heap (Total): ${bytesToMB(memoryData.heapTotal)}`},
+                { name: "\u200B", value: "\u200B" },
+                { name: "Library: Node.js", value: `Node.js ${process.version}`, inline: true },
+                { name: "Ascii Table", value: nodeVersions.dependencies["ascii-table"].replace("^", "v"), inline: true },
+                { name: "node-cron", value: nodeVersions.dependencies["cron"].replace("^", "v"), inline: true },
+                { name: "discord.js", value: nodeVersions.dependencies["discord.js"].replace("^", "v"), inline: true },
+                { name: "dotenv", value: nodeVersions.dependencies["dotenv"].replace("^", "v"), inline: true },
+                { name: "Glob", value: nodeVersions.dependencies["glob"].replace("^", "v"), inline: true },
             )
         interaction.reply({ embeds: [aboutEmbed] });
     },
