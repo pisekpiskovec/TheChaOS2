@@ -33,7 +33,7 @@ A Discord bot written in JavaScript with some useful features (originaly made fo
                 { name: "\u200B", value: "\u200B" },
                 { name: "Memory Usage", value: `RSS: ${bytesToMB(memoryData.rss)}, External: ${bytesToMB(memoryData.external)}, Heap (Used): ${bytesToMB(memoryData.heapUsed)}, Heap (Total): ${bytesToMB(memoryData.heapTotal)}`},
                 { name: "\u200B", value: "\u200B" },
-                { name: "Library: Node.js", value: `Node.js ${process.version}`, inline: true },
+                { name: "Library: Node.js", value: process.version, inline: true },
                 { name: "Ascii Table", value: nodeVersions.dependencies["ascii-table"].replace("^", "v"), inline: true },
                 { name: "node-cron", value: nodeVersions.dependencies["cron"].replace("^", "v"), inline: true },
                 { name: "discord.js", value: nodeVersions.dependencies["discord.js"].replace("^", "v"), inline: true },
