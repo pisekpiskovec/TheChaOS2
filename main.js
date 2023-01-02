@@ -33,7 +33,7 @@ client.on("messageCreate", (message) => {
 client
   .login(process.env.TOKEN)
   .then(() => {
-    client.user.setAvatar(botSettings.botAvatarImg.file_path);
+    client.user.setAvatar(botSettings.botAvatarImg.filePath);
     client.user.setUsername("The ChaOS");
     //client.user.setActivity("Pisek", { type: ActivityType.Listening });
     //client.user.setActivity("Pisek", {type: ActivityType.Competing});

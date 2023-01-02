@@ -1,6 +1,6 @@
 {
   "botAvatarImg": {
-    "file_path": "./resources/alpha2.jpg",
+    "filePath": "./resources/alpha2.jpg",
     "imageColor": "#9694CD"
   },
   "devUserInfo": {
