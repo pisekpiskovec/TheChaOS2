@@ -21,14 +21,15 @@ module.exports = {
      * @param {Client} client 
      */
     execute(interaction, client) {
+        console.log(client.user.avatarURL.call);
         const aboutEmbed = new EmbedBuilder()
             .setTitle("About The ChaOS")
             .setDescription(`The ChaOS - developer codename **${botSettings.botVersions.botCodename}**
 A Discord bot written in JavaScript with some useful features (originaly made for Simp Club)`)
             .setFooter({ text: "Made with LOVE by Pisek" })
             .setAuthor({ name: "Písek Pískovec", iconURL: "https://avatars.githubusercontent.com/u/77384152?v=4", url: "https://github.com/pisekpiskovec" })
-            .setColor(client.user.avatarURL.toString())
-            .setThumbnail(botSettings.botAvatarImg.urlPath)
+            .setColor(botSettings.botAvatarImg.imageColor)
+            .setThumbnail(client.user.avatarURL())
             .addFields(
                 { name: "The ChaOS Version", value: botSettings.botVersions.botChaOS + ` "${botSettings.botVersions.botCodename}"`, inline: true },
                 { name: "Commander Version", value: botSettings.botVersions.botCommander, inline: true },
