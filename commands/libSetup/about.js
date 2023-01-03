@@ -20,8 +20,7 @@ module.exports = {
      * @param {ChatInputCommandInteraction} interaction 
      * @param {Client} client 
      */
-    execute(interaction, client) {
-        console.log(client.user.avatarURL.call);
+    execute(interaction, client) 
         const aboutEmbed = new EmbedBuilder()
             .setTitle("About The ChaOS")
             .setDescription(`The ChaOS - developer codename **${botSettings.botVersions.botCodename}**
