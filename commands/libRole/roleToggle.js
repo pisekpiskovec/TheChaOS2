@@ -4,9 +4,9 @@ const botSettings = require("../../settings.json");
 module.exports = {
     developer: true,
     data: new SlashCommandBuilder()
-        .setName("role_toggle")
+        .setName("togglerole")
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
-        .setDescription("Role manager")
+        .setDescription("Toggable Role manager")
         .addRoleOption((opt) => opt
             .setName("role")
             .setDescription("T02")
