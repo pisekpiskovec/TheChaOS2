@@ -1,26 +1,74 @@
-const { SlashCommandBuilder, ChatInputCommandInteraction, PermissionFlagsBits } = require("discord.js");
+const { SlashCommandBuilder, ChatInputCommandInteraction, GuildMember } = require("discord.js");
 const botSettings = require("../../settings.json");
 
 module.exports = {
     developer: true,
     data: new SlashCommandBuilder()
         .setName("togglerole")
-        .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
         .setDescription("Toggable Role manager")
-        .addRoleOption((opt) => opt
-            .setName("role")
+        .addSubcommand((opt) => opt
+            .setName("manage")
             .setDescription("T02")
-            .setRequired(true)
+            .addStringOption((opt) => opt
+                .setName("role")
+                .setDescription("T02")
+                .setRequired(true)
+            )
+            .addBooleanOption((opt) => opt
+                .setName("toggle")
+                .setDescription("T02")
+                .setRequired(false)
+            )
+            
         )
-        .addBooleanOption((opt) => opt
-            .setName("toggle")
+        .addSubcommand((opt) => opt
+            .setName("addrole")
             .setDescription("T02")
+            .setDescription("T02")
+            .addRoleOption((opt) => opt
+                .setName("role_to_add")
+                .setDescription("T02")
+                .setRequired(true))
+            .addStringOption((opt) => opt
+                .setName("name")
+                .setDescription("T02")
+                .setRequired(true))
         ),
     /**
      * 
      * @param {ChatInputCommandInteraction} interaction 
      */
-    execute(interaction) {
-        interaction.reply({ content: "T02" });
+    execute(interaction, member, client) {
+        if (botSettings.libRole.roleToggleRoles.roleIDs.length < botSettings.libRole.roleToggleRoles.roleNames.length) return interaction.reply({ content: "Number of IDs does not match number of Roles" });
+        if (botSettings.libRole.roleToggleRoles.roleIDs.length > botSettings.libRole.roleToggleRoles.roleNames.length) return interaction.reply({ content: "Number of IDs does not match number of Roles" });
+
+        const subCmommand = interaction.options.getSubcommand();
+        const stringOptionA = interaction.options.getString("role");
+        const stringOptionB = interaction.options.getString("name");
+        const roleOption = interaction.options.getRole("role_to_add");
+        const booleanOption = interaction.options.getBoolean("toggle");
+
+        const role = interaction.guild.roles.cache.find(r => r.name === stringOptionA);
+
+        switch (subCmommand) {
+            case "manage":
+                {
+                    var roleID = botSettings.libRole.roleToggleRoles.roleNames.findIndex(v => v.includes(stringOptionA.toString()))
+                    switch (booleanOption) {
+                        case true:
+                            interaction.guild.members.cache.get(interaction.member.id).roles.add(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
+                            break;
+                        case false:
+                            interaction.guild.members.cache.get(interaction.member.id).roles.remove(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
+                            break;
+                        case null:
+                            break;
+                    }
+                    break;
+                }
+            case "addrole": {
+                break;
+            }
+        }
     }
 }
