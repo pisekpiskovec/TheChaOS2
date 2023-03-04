@@ -17,6 +17,14 @@
   },
   "libRole": {
     "roleAutoToggle": false,
-    "roleAutoRole": ""
+    "roleAutoRoleID": "",
+    "roleToggleRoles": {
+      "roleNames": [],
+      "roleIDs": []
+    }
+  },
+  "botGuildSettings": {
+    "guildID": "",
+    "guildNickname": ""
   }
 }
