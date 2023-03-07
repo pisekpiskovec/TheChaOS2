@@ -19,7 +19,7 @@ module.exports = {
                 .setDescription("T02")
                 .setRequired(false)
             )
-            
+
         )
         .addSubcommand((opt) => opt
             .setName("addrole")
@@ -56,12 +56,19 @@ module.exports = {
                     var roleID = botSettings.libRole.roleToggleRoles.roleNames.findIndex(v => v.includes(stringOptionA.toString()))
                     switch (booleanOption) {
                         case true:
+                            interaction.deferReply();
                             interaction.guild.members.cache.get(interaction.member.id).roles.add(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
+                            interaction.reply(`libRole: Added role ${stringOptionA} to you`);
                             break;
                         case false:
+                            interaction.deferReply();
                             interaction.guild.members.cache.get(interaction.member.id).roles.remove(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
+                            interaction.reply(`libRole: Removed role ${stringOptionA} from you`);
                             break;
                         case null:
+                            interaction.deferReply();
+                            if (interaction.guild.members.cache.get(interaction.member.id).roles.cache.has(botSettings.libRole.roleToggleRoles.roleIDs[roleID])) { interaction.guild.members.cache.get(interaction.member.id).roles.remove(botSettings.libRole.roleToggleRoles.roleIDs[roleID]); interaction.reply(`libRole: Removed role ${stringOptionA} from you`); }
+                            else { interaction.guild.members.cache.get(interaction.member.id).roles.add(botSettings.libRole.roleToggleRoles.roleIDs[roleID]); interaction.reply(`libRole: Added role ${stringOptionA} to you`); }
                             break;
                     }
                     break;
