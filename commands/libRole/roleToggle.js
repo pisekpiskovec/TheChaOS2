@@ -48,7 +48,6 @@ module.exports = {
         const roleOption = interaction.options.getRole("role_to_add");
         const booleanOption = interaction.options.getBoolean("toggle");
 
-        const role = interaction.guild.roles.cache.find(r => r.name === stringOptionA);
 
         switch (subCmommand) {
             case "manage":
