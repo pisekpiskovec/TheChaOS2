@@ -2,7 +2,6 @@ const { SlashCommandBuilder, ChatInputCommandInteraction } = require("discord.js
 const botSettings = require("../../settings.json");
 
 module.exports = {
-    developer: true,
     data: new SlashCommandBuilder()
         .setName("togglerole")
         .setDescription("Toggable Role manager")

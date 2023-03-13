@@ -4,7 +4,6 @@ const editJsonFile = require("edit-json-file");
 let file = editJsonFile("settings.json");
 
 module.exports = {
-    developer: true,
     data: new SlashCommandBuilder()
         .setName("togglerole-add")
         .setDescription("Add roles to Toggable Role manager")
