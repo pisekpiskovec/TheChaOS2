@@ -1,5 +1,7 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction } = require("discord.js");
 const botSettings = require("../../settings.json");
+const editJsonFile = require("edit-json-file");
+let file = editJsonFile("settings.json");
 
 module.exports = {
     developer: true,
@@ -21,5 +23,9 @@ module.exports = {
     execute(interaction, member, client) {
         const stringOption = interaction.options.getString("name");
         const roleOption = interaction.options.getRole("role_to_add");
+        
+        file.append("libRole.roleToggleRoles.roleNames", stringOption);
+        file.append("libRole.roleToggleRoles.roleIDs", roleOption.id);
+        file.save();
     }
 }
