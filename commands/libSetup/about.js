@@ -45,6 +45,7 @@ A Discord bot written in JavaScript with some useful features (originaly made fo
                 { name: "discord.js", value: nodeVersions.dependencies["discord.js"].replace("^", "v"), inline: true },
                 { name: "dotenv", value: nodeVersions.dependencies["dotenv"].replace("^", "v"), inline: true },
                 { name: "Glob", value: nodeVersions.dependencies["glob"].replace("^", "v"), inline: true },
+                { name: "Edit JSON File", value: nodeVersions.dependencies["edit-json-file"].replace("^", "v"), inline: true },
             )
         interaction.reply({ embeds: [aboutEmbed] });
     },
