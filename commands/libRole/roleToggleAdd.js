@@ -27,5 +27,8 @@ module.exports = {
         file.append("libRole.roleToggleRoles.roleNames", stringOption);
         file.append("libRole.roleToggleRoles.roleIDs", roleOption.id);
         file.save();
+        interaction.reply(`Commander: [libRole] Added role ${stringOption} to roleToggle pool`).then(() => {
+              console.log(`Commander: [libRole] User ${interaction.guild.members.cache.get(interaction.member.id).displayName} added role ${stringOption} to roleToggle pool`)
+        });
     }
 }
