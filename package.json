@@ -8,7 +8,7 @@
     "glob": "^8.0.3"
   },
   "name": "tchos-2",
-  "version": "2.0a2",
+  "version": "2.0a3",
   "description": "Second generation of The ChaOS made with LOVE for Simp Club",
   "main": "main.js",
   "scripts": {

@@ -1,7 +1,7 @@
 {
   "botAvatarImg": {
-    "filePath": "./resources/alpha2.jpg",
-    "imageColor": "#9694CD"
+    "filePath": "./resources/alpha3.jpg",
+    "imageColor": "#8E8CC0"
   },
   "devUserInfo": {
     "devUserID": "",
@@ -9,11 +9,11 @@
   },
   "botVersions": {
     "botCore": "1.0",
-    "botChaOS": "2.0a2",
+    "botChaOS": "2.0a3",
     "botCommander": "1.0",
     "botEventHandlingSystem": "2.0",
     "botCyclops": "1.5.1",
-    "botCodename": "Agapanthus"
+    "botCodename": "Ageratum"
   },
   "libRole": {
     "roleAutoToggle": false,
