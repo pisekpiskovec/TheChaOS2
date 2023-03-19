@@ -30,6 +30,12 @@ client.on("messageCreate", (message) => {
   }
 });
 
+client.on("guildMemberAdd", async () => {
+  if (botSettings.libRole.roleAutoRoleID = "") return console.log("EHS: Role ID for AutoRole is missing.");
+  else await member.roles.add(botSettings.libRole.roleAutoRoleID)
+    .catch(() => { console.log("EHS: Failed to assign role due to role hierarchy.") });
+});
+
 client
   .login(process.env.TOKEN)
   .then(() => {
@@ -37,5 +43,5 @@ client
     client.user.setUsername("The ChaOS");
     //client.user.setActivity("Pisek", { type: ActivityType.Listening });
     //client.user.setActivity("Pisek", {type: ActivityType.Competing});
-    client.user.setActivity("Nora", {type: ActivityType.Watching});
+    client.user.setActivity("Nora", { type: ActivityType.Watching });
   });
