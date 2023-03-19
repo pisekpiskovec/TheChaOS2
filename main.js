@@ -31,9 +31,11 @@ client.on("messageCreate", (message) => {
 });
 
 client.on("guildMemberAdd", async () => {
-  if (botSettings.libRole.roleAutoRoleID = "") return console.log("EHS: Role ID for AutoRole is missing.");
-  else await member.roles.add(botSettings.libRole.roleAutoRoleID)
-    .catch(() => { console.log("EHS: Failed to assign role due to role hierarchy.") });
+  if (botSettings.libRole.roleAutoToggle == true) {
+    if (botSettings.libRole.roleAutoRoleID = "") return console.log("EHS: Role ID for AutoRole is missing.");
+    else await member.roles.add(botSettings.libRole.roleAutoRoleID)
+      .catch(() => { console.log("EHS: Failed to assign role due to role hierarchy.") });
+  }
 });
 
 client
