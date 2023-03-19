@@ -31,7 +31,7 @@ client.on("messageCreate", (message) => {
 });
 
 client.on("guildMemberAdd", async () => {
-  if (botSettings.libRole.roleAutoToggle == true) {
+  if (botSettings.libRole.roleAutoToggle === true) {
     if (botSettings.libRole.roleAutoRoleID = "") return console.log("EHS: Role ID for AutoRole is missing.");
     else await member.roles.add(botSettings.libRole.roleAutoRoleID)
       .catch(() => { console.log("EHS: Failed to assign role due to role hierarchy.") });
@@ -43,7 +43,5 @@ client
   .then(() => {
     client.user.setAvatar(botSettings.botAvatarImg.filePath);
     client.user.setUsername("The ChaOS");
-    //client.user.setActivity("Pisek", { type: ActivityType.Listening });
-    //client.user.setActivity("Pisek", {type: ActivityType.Competing});
-    client.user.setActivity("Nora", { type: ActivityType.Watching });
+    client.user.setActivity(botSettings.devUserInfo.devUserNickname, { type: ActivityType.Listening });
   });
