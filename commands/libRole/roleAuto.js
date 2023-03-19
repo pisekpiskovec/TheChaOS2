@@ -1,12 +1,14 @@
 const { SlashCommandBuilder, ChatInputCommandInteraction, PermissionFlagsBits } = require("discord.js");
 const botSettings = require("../../settings.json");
+const editJsonFile = require("edit-json-file");
+let file = editJsonFile("settings.json");
 
 module.exports = {
     developer: true,
     data: new SlashCommandBuilder()
         .setName("autorole")
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
-        .setDescription("Automatic Role manager")
+        .setDescription("Automatic Role manager: Gives role to joining members.")
         .addSubcommand((opt) => opt
             .setName("toggle")
             .setDescription("T01")
@@ -31,13 +33,22 @@ module.exports = {
      */
     execute(interaction) {
         const subCommand = interaction.options.getSubcommand();
+        const boolOption = interaction.options.getBoolean("bool");
+        const roleOption = interaction.options.getRole("role");
         switch (subCommand) {
             case "toggle":
-                console.log(`Cyclops: [libRole] {} toggled on Auto Role`);
+                file.set("libRole.roleAutoToggle", boolOption);
+                interaction.reply(`[libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} toggled ${boolOption} on Auto Role`).then(() => {
+                    console.log(`Cyclops: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} toggled ${boolOption} on Auto Role`);
+                });
                 break;
             case "role":
-                console.log(`Cyclops: [libRole] {} set role on Auto Role`);
+                file.set("libRole.roleAutoRoleID", roleOption.id)
+                interaction.reply(`[libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} set role ${roleOption.name} on Auto Role`).then(() => {
+                    console.log(`Cyclops: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} set role ${roleOption.name} on Auto Role`);
+                });
                 break;
         }
+        file.save();
     }
 }
