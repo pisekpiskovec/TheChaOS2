@@ -19,9 +19,37 @@ module.exports = {
      * 
      * @param {ChatInputCommandInteraction} interaction 
      */
-    execute(interaction) {
+    async execute(interaction) {
         const memberOption = interaction.options.getMember("member");
-        const stringOption = interaction.options.getString("reason");
-        
+        const stringOption = interaction.options.getString("reason") || "No reason provided.";
+
+        await interaction.deferReply();
+
+        const memberKick = interaction.guild.members.fetch(memberOption.id);
+        if (!memberKick) {
+            await interaction.editReply(`[libRoot] User cannot be kicked since they doesn't exist in this server.`);
+            return;
+        } else if (memberKick.id === interaction.guild.ownerId) {
+            await interaction.editReply(`[libRoot] User cannot be kicked since they are the owner of this server.`);
+            return;
+        }
+        const targetUserRolePosition = memberKick.roles.highest.position;
+        const requestUserRolePosition = interaction.member.roles.highest.position;
+        const botRolePosition = interaction.guild.members.me.roles.highest.position;
+
+        if (targetUserRolePosition >= requestUserRolePosition) {
+            await interaction.editReply(`[libRoot] You can't kick the user becuse they are on different level.`);
+            return;
+        }
+        else if (targetUserRolePosition >= botRolePosition) {
+            await interaction.editReply(`[libRoot] Kicking this person would cause so much chaos.`);
+            return;
+        }
+        try {
+            await (await memberKick).ban({ stringOption });
+            await interaction.editReply(`[libRoot] Member succesfuly kicked with reason: ${stringOption}  .`);
+        } catch (error) {
+            await interaction.editReply(`[libRoot] An error occured during kicking: ${error}`);
+        }
     }
 }
