@@ -46,7 +46,7 @@ module.exports = {
             return;
         }
         try {
-            await (await memberKick).ban({ stringOption });
+            await (await memberKick).kick({ stringOption });
             await interaction.editReply(`[libRoot] Member succesfuly kicked with reason: ${stringOption}  .`);
         } catch (error) {
             await interaction.editReply(`[libRoot] An error occured during kicking: ${error}`);
