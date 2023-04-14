@@ -33,7 +33,7 @@ module.exports = {
             await interaction.editReply(`[libRoot] User cannot be banned since they are the owner of this server.`);
             return;
         }
-        const targetUserRolePosition = memberBan.roles.highest.position;
+        const targetUserRolePosition = (await memberBan).roles.highest.position;
         const requestUserRolePosition = interaction.member.roles.highest.position;
         const botRolePosition = interaction.guild.members.me.roles.highest.position;
 
