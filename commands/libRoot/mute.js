@@ -4,12 +4,25 @@ module.exports = {
     developer: true,
     data: new SlashCommandBuilder()
         .setName("mute")
-        .setDefaultMemberPermissions(PermissionFlagsBits.MuteMembers)
+        //.setDefaultMemberPermissions(PermissionFlagsBits.MuteMembers)
         .setDescription("Mute members.")
         .addMentionableOption((opt) => opt
             .setName("member")
             .setDescription("Who do you want to mute today?")
             .setRequired(true)
+        )
+        .addNumberOption((opt) => opt
+            .setName("duration")
+            .setDescription("How long they should be muted? (In miliseconds)")
+            .setRequired(true)
+            .addChoices(
+                { name: "60 SECS", value: 60000 },
+                { name: "5 MINS", value: 300000 },
+                { name: "10 MINS", value: 600000 },
+                { name: "1 HOUR", value: 3600000 },
+                { name: "1 DAY", value: 86400000 },
+                { name: "1 WEEK", value: 604800000 }
+            )
         )
         .addStringOption((opt) => opt
             .setName("reason")
@@ -21,6 +34,7 @@ module.exports = {
      */
     async execute(interaction) {
         const memberOption = interaction.options.getMember("member");
+        const numberOption = interaction.options.getNumber("duration");
         const stringOption = interaction.options.getString("reason") || "No reason provided.";
 
         await interaction.deferReply();
@@ -46,8 +60,8 @@ module.exports = {
             return;
         }
         try {
-            await (await memberMute).timeout({ stringOption });
-            await interaction.editReply(`[libRoot] Member succesfuly muted with reason: ${stringOption}  .`);
+            await (await memberMute).timeout(numberOption, stringOption);
+            await interaction.editReply(`[libRoot] Member succesfuly muted with reason: **"${stringOption}"**.`);
         } catch (error) {
             await interaction.editReply(`[libRoot] An error occured during muting: ${error}`);
         }
