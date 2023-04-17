@@ -46,8 +46,8 @@ module.exports = {
             return;
         }
         try {
-            await (await memberBan).ban({ stringOption });
-            await interaction.editReply(`[libRoot] Member succesfuly banned with reason: ${stringOption}  .`);
+            await (await memberBan).ban(stringOption);
+            await interaction.editReply(`[libRoot] Member succesfuly banned with reason: **"${stringOption}"**  .`);
         } catch (error) {
             await interaction.editReply(`[libRoot] An error occured during banning: ${error}`);
         }

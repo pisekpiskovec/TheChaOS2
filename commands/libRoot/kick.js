@@ -11,7 +11,7 @@ module.exports = {
             .setDescription("Who do you want to kick today?")
             .setRequired(true)
         )
-        .addStringOption((opt)=> opt
+        .addStringOption((opt) => opt
             .setName("reason")
             .setDescription("Why do you want to kick them?")
         ),
@@ -46,8 +46,8 @@ module.exports = {
             return;
         }
         try {
-            await (await memberKick).kick({ stringOption });
-            await interaction.editReply(`[libRoot] Member succesfuly kicked with reason: ${stringOption}  .`);
+            await (await memberKick).kick(stringOption);
+            await interaction.editReply(`[libRoot] Member succesfuly kicked with reason: **"${stringOption}"**.`);
         } catch (error) {
             await interaction.editReply(`[libRoot] An error occured during kicking: ${error}`);
         }
