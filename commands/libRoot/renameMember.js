@@ -20,9 +20,37 @@ module.exports = {
      * 
      * @param {ChatInputCommandInteraction} interaction 
      */
-    execute(interaction) {
+    async execute(interaction) {
         const memberOption = interaction.options.getMember("member");
         const stringOption = interaction.options.getString("new_name");
 
+        await interaction.deferReply();
+
+        const memberRename = interaction.guild.members.fetch(memberOption.id);
+        if (!memberRename) {
+            await interaction.editReply(`[libRoot] User cannot be renamed since they doesn't exist in this server.`);
+            return;
+        } else if (memberRename.id === interaction.guild.ownerId) {
+            await interaction.editReply(`[libRoot] User cannot be renamed since they are the owner of this server.`);
+            return;
+        }
+        const targetUserRolePosition = (await memberRename).roles.highest.position;
+        const requestUserRolePosition = interaction.member.roles.highest.position;
+        const botRolePosition = interaction.guild.members.me.roles.highest.position;
+
+        if (targetUserRolePosition >= requestUserRolePosition) {
+            await interaction.editReply(`[libRoot] You can't rename the user becuse they are on different level.`);
+            return;
+        }
+        else if (targetUserRolePosition >= botRolePosition) {
+            await interaction.editReply(`[libRoot] Renaming this person would cause so much chaos.`);
+            return;
+        }
+        try {
+            await (await memberRename).setNickname(stringOption);
+            await interaction.editReply(`[libRoot] Member succesfuly renamed to: **"${stringOption}"**.`);
+        } catch (error) {
+            await interaction.editReply(`[libRoot] An error occured during renaming: ${error}`);
+        }
     }
 }
