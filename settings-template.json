@@ -26,5 +26,10 @@
   "botGuildSettings": {
     "guildID": "",
     "guildNickname": ""
+  },
+  "libRoot": {
+    "announceChannelID": "",
+    "autoBan": false,
+    "autoBanRules": []
   }
 }
