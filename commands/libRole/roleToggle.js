@@ -27,7 +27,7 @@ module.exports = {
         const booleanOption = interaction.options.getBoolean("toggle");
 
 
-        var roleID = botSettings.libRole.roleToggleRoles.roleNames.findIndex(v => v.includes(stringOption.toString()))
+        var roleID = botSettings.libRole.roleToggleRoles.roleNames.indexOf(stringOption);
         switch (booleanOption) {
             case true:
                 interaction.guild.members.cache.get(interaction.member.id).roles.add(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
