@@ -34,19 +34,19 @@ module.exports = {
     execute(interaction) {
         const subCommand = interaction.options.getSubcommand();
         const boolOption = interaction.options.getBoolean("bool");
-        const roleOption = interaction.options.getRole("role");
+        const stringOption = interaction.options.getString("sensitive_string");
         switch (subCommand) {
             case "toggle":
-                //file.set("libRole.roleAutoToggle", boolOption);
-                //interaction.reply(`[libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} toggled ${boolOption} on Auto Role`).then(() => {
-                //    console.log(`Cyclops: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} toggled ${boolOption} on Auto Role`);
-                //});
+                file.set("libRoot.autoBanToggle", boolOption);
+                interaction.reply(`[libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} toggled ${boolOption ? "on" : "off"} Auto Ban`).then(() => {
+                    console.log(`Cyclops: [libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) toggled ${boolOption ? "on" : "off"} Auto Ban`);
+                });
                 break;
-            case "role":
-                //file.set("libRole.roleAutoRoleID", roleOption.id)
-                //interaction.reply(`[libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} set role ${roleOption.name} on Auto Role`).then(() => {
-                //    console.log(`Cyclops: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} set role ${roleOption.name} on Auto Role`);
-                //});
+            case "string":
+                file.append("libRoot.autoBanRules", stringOption)
+                interaction.reply(`[libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} added rule ${stringOption} to Auto Ban list.`).then(() => {
+                    console.log(`Cyclops: [libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) added rule ${stringOption} to Auto Ban list.`);
+                });
                 break;
         }
         file.save();
