@@ -45,7 +45,7 @@ module.exports = {
             case "string":
                 file.append("libRoot.autoBanRules", stringOption)
                 interaction.reply(`[libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} added rule ${stringOption} to Auto Ban list.`).then(() => {
-                    console.log(`Cyclops: [libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) added rule ${stringOption} to Auto Ban list.`);
+                    console.log(`Cyclops: [libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) added rule "${stringOption}" to Auto Ban list.`);
                 });
                 break;
         }
