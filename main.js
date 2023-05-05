@@ -39,15 +39,17 @@ client.on("guildMemberAdd", async (member) => {
   }
 });
 
-client.on("guildMemberAdd", async (member) => {
-  if (botSettings.libRoot.autoBanToggle === true) {
-    if (botSettings.libRoot.autoBanRules = "") return console.log("EHS: [libRoot] Ruels for AutoBan are missing.");
-    //else if() {
-      try { await member.ban({reason: "AutoBan by The ChaOS 2nd Generation"}) }
-      catch (error) { console.log(`EHS: [libRoot] Failed to ban member due to ${error}.`) }
-    //}
-  }
-});
+//client.on("guildMemberAdd", async (member) => {
+//  var banID = botSettings.libRoot.autoBanRules.indexOf(member.user.username);
+//
+//  if (botSettings.libRoot.autoBanToggle === true) {
+//    if (botSettings.libRoot.autoBanRules = "") return console.log("EHS: [libRoot] Ruels for AutoBan are missing.");
+//    if (ban != -1) {
+//      try { await member.ban({ reason: "AutoBan by The ChaOS 2nd Generation" }) }
+//      catch (error) { console.log(`EHS: [libRoot] Failed to ban member due to ${error}.`) }
+//    }
+//  }
+//});
 
 client
   .login(process.env.TOKEN)
