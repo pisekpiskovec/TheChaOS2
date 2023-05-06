@@ -34,7 +34,7 @@ module.exports = {
      */
     async execute(interaction) {
         const memberOption = interaction.options.getMember("member");
-        const numberOption = interaction.options.getNumber("duration");
+        const numberOption = interaction.options.getNumber("duration") || 60000;
         const stringOption = interaction.options.getString("reason") || "No reason provided.";
 
         await interaction.deferReply();
@@ -61,7 +61,7 @@ module.exports = {
         }
         try {
             await (await memberMute).timeout(numberOption, stringOption);
-            await interaction.editReply(`[libRoot] Member succesfuly muted with reason: **"${stringOption}"**.`);
+            await interaction.editReply(`[libRoot] Member succesfuly muted with reason: **"${stringOption}"** for **${numberOption / 60000} second(s)**.`);
         } catch (error) {
             await interaction.editReply(`[libRoot] An error occured during muting: ${error}`);
         }
