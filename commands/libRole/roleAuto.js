@@ -10,19 +10,19 @@ module.exports = {
         .setDescription("Automatic Role manager: Gives role to joining members.")
         .addSubcommand((opt) => opt
             .setName("toggle")
-            .setDescription("T01")
+            .setDescription("Toggle AutoRole")
             .addBooleanOption((opt) => opt
                 .setName("bool")
-                .setDescription("T01")
+                .setDescription("Enable AutoRole")
                 .setRequired(true)
             )
         )
         .addSubcommand((opt) => opt
             .setName("role")
-            .setDescription("T01")
+            .setDescription("Sets role to add on join")
             .addRoleOption((opt) => opt
                 .setName("role")
-                .setDescription("T01")
+                .setDescription("Role to add on join")
                 .setRequired(true)
             )
         ),

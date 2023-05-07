@@ -7,12 +7,12 @@ module.exports = {
         .setDescription("Toggable Role manager")
         .addStringOption((opt) => opt
             .setName("role")
-            .setDescription("T02")
+            .setDescription("Enter role's global string.")
             .setRequired(true)
         )
         .addBooleanOption((opt) => opt
             .setName("toggle")
-            .setDescription("T02")
+            .setDescription("Specify role's global string")
             .setRequired(false)
         ),
     /**
