@@ -25,6 +25,7 @@ module.exports = {
         await client.channels.fetch(botSettings.libRoot.announceChannelID)
             .then(channel => channel.send(stringOption));
 
-        await interaction.editReply("✅ Announcement sent.")
+        await interaction.editReply(`Commander: [libRoot] Annoucment sent to ${client.channels.fetch(botSettings.libRoot.announceChannelID).then(channel => channel.name)}`)
+            .then(() => console.log(`Commander: [libRoot] User ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) sent annoucment to Annoucment channle.`))
     }
 }

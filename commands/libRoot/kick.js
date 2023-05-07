@@ -27,10 +27,10 @@ module.exports = {
 
         const memberKick = interaction.guild.members.fetch(memberOption.id);
         if (!memberKick) {
-            await interaction.editReply(`[libRoot] User cannot be kicked since they doesn't exist in this server.`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during kicking: User cannot be kicked since they doesn't exist in this server.`);
             return;
         } else if (memberKick.id === interaction.guild.ownerId) {
-            await interaction.editReply(`[libRoot] User cannot be kicked since they are the owner of this server.`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during kicking: User cannot be kicked since they are the owner of this server.`);
             return;
         }
         const targetUserRolePosition = (await memberKick).roles.highest.position;
@@ -38,18 +38,18 @@ module.exports = {
         const botRolePosition = interaction.guild.members.me.roles.highest.position;
 
         if (targetUserRolePosition >= requestUserRolePosition) {
-            await interaction.editReply(`[libRoot] You can't kick the user becuse they are on different level.`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during kicking: You can't kick the user becuse they are on different level.`);
             return;
         }
         else if (targetUserRolePosition >= botRolePosition) {
-            await interaction.editReply(`[libRoot] Kicking this person would cause so much chaos.`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during kicking: Kicking this person would cause so much chaos.`);
             return;
         }
         try {
             await (await memberKick).kick(stringOption);
-            await interaction.editReply(`[libRoot] Member succesfuly kicked with reason: **"${stringOption}"**.`);
+            await interaction.editReply(`Commander: [libRoot] Member succesfuly kicked with reason: **"${stringOption}"**.`);
         } catch (error) {
-            await interaction.editReply(`[libRoot] An error occured during kicking: ${error}`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during kicking: An error occured during kicking: ${error}`);
         }
     }
 }

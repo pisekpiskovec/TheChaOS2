@@ -23,12 +23,12 @@ module.exports = {
     execute(interaction, member, client) {
         const stringOption = interaction.options.getString("name");
         const roleOption = interaction.options.getRole("role_to_add");
-        
+
         file.append("libRole.roleToggleRoles.roleNames", stringOption);
         file.append("libRole.roleToggleRoles.roleIDs", roleOption.id);
         file.save();
         interaction.reply(`Commander: [libRole] Added role ${stringOption} to roleToggle pool`).then(() => {
-              console.log(`Commander: [libRole] User ${interaction.guild.members.cache.get(interaction.member.id).displayName} added role ${stringOption} to roleToggle pool`)
+            console.log(`Commander: [libRole] User ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) added role ${stringOption} to roleToggle pool`)
         });
     }
 }

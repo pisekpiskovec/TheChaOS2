@@ -32,26 +32,26 @@ module.exports = {
             case true:
                 interaction.guild.members.cache.get(interaction.member.id).roles.add(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
                 interaction.reply(`Commander: [libRole] Added role ${stringOption} to you`).then(() => {
-                    console.log(`Commander: [libRole] Added role ${stringOption} to ${interaction.guild.members.cache.get(interaction.member.id).displayName}`)
+                    console.log(`Commander: [libRole] Added role ${stringOption} to ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id})`)
                 });
                 break;
             case false:
                 interaction.guild.members.cache.get(interaction.member.id).roles.remove(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
                 interaction.reply(`Commander: [libRole] Removed role ${stringOption} from you`).then(() => {
-                    console.log(`Commander: [libRole] Removed role ${stringOption} from ${interaction.guild.members.cache.get(interaction.member.id).displayName}`)
+                    console.log(`Commander: [libRole] Removed role ${stringOption} from ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id})`)
                 });
                 break;
             case null:
                 if (interaction.guild.members.cache.get(interaction.member.id).roles.cache.has(botSettings.libRole.roleToggleRoles.roleIDs[roleID])) {
                     interaction.guild.members.cache.get(interaction.member.id).roles.remove(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
                     interaction.reply(`Commander: [libRole] Removed role ${stringOption} from you`).then(() => {
-                        console.log(`Commander: [libRole] Removed role ${stringOption} from ${interaction.guild.members.cache.get(interaction.member.id).displayName}`)
+                        console.log(`Commander: [libRole] Removed role ${stringOption} from ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id})`)
                     });
                 }
                 else {
                     interaction.guild.members.cache.get(interaction.member.id).roles.add(botSettings.libRole.roleToggleRoles.roleIDs[roleID]);
                     interaction.reply(`Commander: [libRole] Added role ${stringOption} to you`).then(() => {
-                        console.log(`Commander: [libRole] Added role ${stringOption} to ${interaction.guild.members.cache.get(interaction.member.id).displayName}`)
+                        console.log(`Commander: [libRole] Added role ${stringOption} to ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id})`)
                     });
 
                 }

@@ -41,10 +41,10 @@ module.exports = {
 
         const memberMute = interaction.guild.members.fetch(memberOption.id);
         if (!memberMute) {
-            await interaction.editReply(`[libRoot] User cannot be muted since they doesn't exist in this server.`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during muting: User cannot be muted since they doesn't exist in this server.`);
             return;
         } else if (memberMute.id === interaction.guild.ownerId) {
-            await interaction.editReply(`[libRoot] User cannot be muted since they are the owner of this server.`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during muting: User cannot be muted since they are the owner of this server.`);
             return;
         }
         const targetUserRolePosition = (await memberMute).roles.highest.position;
@@ -52,18 +52,18 @@ module.exports = {
         const botRolePosition = interaction.guild.members.me.roles.highest.position;
 
         if (targetUserRolePosition >= requestUserRolePosition) {
-            await interaction.editReply(`[libRoot] You can't mute the user becuse they are on different level.`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during muting: You can't mute the user becuse they are on different level.`);
             return;
         }
         else if (targetUserRolePosition >= botRolePosition) {
-            await interaction.editReply(`[libRoot] Muting this person would cause so much chaos.`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during muting: Muting this person would cause so much chaos.`);
             return;
         }
         try {
             await (await memberMute).timeout(numberOption, stringOption);
-            await interaction.editReply(`[libRoot] Member succesfuly muted with reason: **"${stringOption}"** for **${numberOption / 60000} second(s)**.`);
+            await interaction.editReply(`Commander: [libRoot] Member succesfuly muted with reason: **"${stringOption}"** for **${numberOption / 60000} second(s)**.`);
         } catch (error) {
-            await interaction.editReply(`[libRoot] An error occured during muting: ${error}`);
+            await interaction.editReply(`Commander: [libRoot] An error occured during muting: ${error}`);
         }
     }
 }

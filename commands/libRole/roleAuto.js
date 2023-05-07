@@ -37,14 +37,14 @@ module.exports = {
         switch (subCommand) {
             case "toggle":
                 file.set("libRole.roleAutoToggle", boolOption);
-                interaction.reply(`[libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} toggled ${boolOption} on Auto Role`).then(() => {
-                    console.log(`Cyclops: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} toggled ${boolOption} on Auto Role`);
+                interaction.reply(`Commander: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} toggled ${boolOption ? "on" : "off"} on Auto Role`).then(() => {
+                    console.log(`Commander: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) toggled ${boolOption} on Auto Role`);
                 });
                 break;
             case "role":
                 file.set("libRole.roleAutoRoleID", roleOption.id)
-                interaction.reply(`[libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} set role ${roleOption.name} on Auto Role`).then(() => {
-                    console.log(`Cyclops: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} set role ${roleOption.name} on Auto Role`);
+                interaction.reply(`Commander: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} set role ${roleOption.name} on Auto Role`).then(() => {
+                    console.log(`Commander: [libRole] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) set role ${roleOption.name} on Auto Role`);
                 });
                 break;
         }

@@ -33,9 +33,9 @@ client.on("messageCreate", (message) => {
 client.on("guildMemberAdd", async (member) => {
   const roleToAdd = await member.guild.roles.cache.get(botSettings.libRole.roleAutoRoleID);
   if (botSettings.libRole.roleAutoToggle === true) {
-    if (botSettings.libRole.roleAutoRoleID = "") return console.log("EHS: [libRole] Role ID for AutoRole is missing.");
+    if (botSettings.libRole.roleAutoRoleID = "") return console.log("EHS: [libRole] Failed to assign role due to: Role ID for AutoRole is missing.");
     else await member.roles.add(roleToAdd)
-      .catch(() => { console.log("EHS: [libRole] Failed to assign role due to role hierarchy.") });
+      .catch(() => { console.log("EHS: [libRole] Failed to assign role due to: Role hierarchy.") });
   }
 });
 
@@ -43,10 +43,10 @@ client.on("guildMemberAdd", async (member) => {
   var banID = await botSettings.libRoot.autoBanRules.indexOf(member.user.username);
 
   if (botSettings.libRoot.autoBanToggle === true) {
-    if (botSettings.libRoot.autoBanRules.length = 0) return console.log("EHS: [libRoot] Ruels for AutoBan are missing.");
+    if (botSettings.libRoot.autoBanRules.length = 0) return console.log("EHS: [libRoot] Failed to ban member due to: Ruels for AutoBan are missing.");
     else if (banID != "-1") {
-      try { await member.ban({ reason: "AutoBan by The ChaOS 2nd Generation" }) }
-      catch (error) { console.log(`EHS: [libRoot] Failed to ban member due to ${error}.`) }
+      try { await member.ban({ reason: "You've been banned by The ChaOS 2nd Generation's AutoBan feature." }) }
+      catch (error) { console.log(`EHS: [libRoot] Failed to ban member due to: ${error}`) }
     }
   }
 });
