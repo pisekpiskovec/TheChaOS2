@@ -8,10 +8,10 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("autoban")
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
-        .setDescription("Automatically ban members.")
+        .setDescription("Automatic Ban manager: Automatically ban members.")
         .addSubcommand((opt) => opt
             .setName("toggle")
-            .setDescription("T01")
+            .setDescription("Toggle AutoBan")
             .addBooleanOption((opt) => opt
                 .setName("bool")
                 .setDescription("T01")
@@ -23,7 +23,7 @@ module.exports = {
             .setDescription("T01")
             .addStringOption((opt) => opt
                 .setName("sensitive_string")
-                .setDescription("T01")
+                .setDescription("User with this string will be banned on joining")
                 .setRequired(true)
             )
         ),
