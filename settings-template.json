@@ -23,10 +23,6 @@
       "roleIDs": []
     }
   },
-  "botGuildSettings": {
-    "guildID": "",
-    "guildNickname": ""
-  },
   "libRoot": {
     "announceChannelID": "",
     "autoBanToggle": false,
