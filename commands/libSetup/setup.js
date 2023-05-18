@@ -4,10 +4,9 @@ let file = editJsonFile("settings.json");
 var botSettings = require("../../settings.json");
 
 module.exports = {
-    developer: true,
     data: new SlashCommandBuilder()
         .setName("setup")
-        //.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .setDescription("Setup TheChaOS")
         .addStringOption(opt => opt
             .setName("local_developer_nickname")
