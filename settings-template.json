@@ -1,8 +1,4 @@
 {
-  "botAvatarImg": {
-    "filePath": "./resources/alpha4.jpg",
-    "imageColor": "#4C7231"
-  },
   "devUserInfo": {
     "devUserID": "",
     "devUserNickname": ""
@@ -27,5 +23,13 @@
     "announceChannelID": "",
     "autoBanToggle": false,
     "autoBanRules": []
+  },
+  "libSetup": {
+    "botAvatar": {
+      "fileURL": "resources/alpha4.jpg"
+    },
+    "accentColor": "#4C7231",
+    "activity": "",
+    "activityType": ""
   }
 }
