@@ -25,9 +25,7 @@
     "autoBanRules": []
   },
   "libSetup": {
-    "botAvatar": {
-      "fileURL": "resources/alpha4.jpg"
-    },
+    "botAvatarFileURL": "resources/alpha4.jpg",
     "accentColor": "#4C7231",
     "activity": "",
     "activityType": ""
