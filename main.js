@@ -54,7 +54,21 @@ client.on("guildMemberAdd", async (member) => {
 client
   .login(process.env.TOKEN)
   .then(() => {
-    client.user.setAvatar(botSettings.botAvatarImg.filePath);
-    client.user.setUsername("The ChaOS");
-    client.user.setActivity(botSettings.devUserInfo.devUserNickname, { type: ActivityType.Listening });
+    switch (botSettings.libSetup.activityType) {
+      case "competing":
+        client.user.setActivity(botSettings.libSetup.activity, { type: ActivityType.Competing });
+        break;
+      case "listening":
+        client.user.setActivity(botSettings.libSetup.activity, { type: ActivityType.Listening });
+        break;
+      case "playing":
+        client.user.setActivity(botSettings.libSetup.activity, { type: ActivityType.Playing });
+        break;
+      case "streaming":
+        client.user.setActivity(botSettings.libSetup.activity, { type: ActivityType.Streaming });
+        break;
+      case "watching":
+        client.user.setActivity(botSettings.libSetup.activity, { type: ActivityType.Watching });
+        break;
+    }
   });
