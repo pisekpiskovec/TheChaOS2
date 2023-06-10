@@ -56,11 +56,11 @@ module.exports = {
         function getURLBasedOnContentType() {
             if (attachmentOption.contentType == "image/jpeg" | "image/png" | "image/webp")
                 return attachmentOption.url
-            else return "resources/alpha4.jpg"
+            else return "resources/beta1.jpg"
         }
 
         function getHash() {
-            if (stringOptionA == null) { return "#4C7231" }
+            if (stringOptionA == null) { return "#B57AB8" }
             else if (stringOptionA.startsWith("#") && stringOptionA.length == 7) { return stringOptionA.toUpperCase() }
             else if (stringOptionA.startsWith("#") && stringOptionA.length == 6) { return stringOptionA.toUpperCase() + "0" }
             else if (!stringOptionA.startsWith("#") && stringOptionA.length == 6) { return "#" + stringOptionA.toUpperCase() }

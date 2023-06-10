@@ -5,11 +5,11 @@
   },
   "botVersions": {
     "botCore": "1.0.2",
-    "botChaOS": "2.0a4",
+    "botChaOS": "2.0b1",
     "botCommander": "1.0",
     "botEventHandlingSystem": "2.0",
     "botCyclops": "1.5.2",
-    "botCodename": "Alchemilla"
+    "botCodename": "Allium"
   },
   "libRole": {
     "roleAutoToggle": false,
@@ -25,8 +25,8 @@
     "autoBanRules": []
   },
   "libSetup": {
-    "botAvatarFileURL": "resources/alpha4.jpg",
-    "accentColor": "#4C7231",
+    "botAvatarFileURL": "resources/beta1.jpg",
+    "accentColor": "#B57AB8",
     "activity": "",
     "activityType": "playing"
   }
