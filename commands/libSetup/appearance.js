@@ -4,10 +4,9 @@ let file = editJsonFile("settings.json");
 var botSettings = require("../../settings.json");
 
 module.exports = {
-    developer: true,
     data: new SlashCommandBuilder()
         .setName("appearance")
-        //.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .setDescription("Setup TheChaOS's appearance")
         .addAttachmentOption(opt => opt
             .setName("bot_avatar_path")
