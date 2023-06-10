@@ -19,13 +19,17 @@ module.exports = {
             )
         )
         .addSubcommand((opt) => opt
-            .setName("string")
-            .setDescription("T01")
+            .setName("add")
+            .setDescription("Add AutoBan rule")
             .addStringOption((opt) => opt
                 .setName("sensitive_string")
                 .setDescription("User with this string will be banned on joining")
                 .setRequired(true)
             )
+        )
+        .addSubcommand((opt) => opt
+            .setName("list")
+            .setDescription("List AutoBan rules")
         ),
     /**
      * 
@@ -42,10 +46,19 @@ module.exports = {
                     console.log(`Cyclops: [libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) toggled ${boolOption ? "on" : "off"} Auto Ban`);
                 });
                 break;
-            case "string":
+            case "add":
                 file.append("libRoot.autoBanRules", stringOption)
                 interaction.reply(`[libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} added rule ${stringOption} to Auto Ban list.`).then(() => {
                     console.log(`Cyclops: [libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) added rule "${stringOption}" to Auto Ban list.`);
+                });
+                break;
+            case "list":
+                let finalString = "";
+                for (let i = 0; i < botSettings.libRoot.autoBanRules.length; i++) {
+                    finalString += botSettings.libRoot.autoBanRules[i] + ", ";
+                }
+                interaction.reply(`[libRoot] Here's the list of all rules: ${finalString}`).then(() => {
+                    console.log(`Cyclops: [libRoot] ${interaction.guild.members.cache.get(interaction.member.id).displayName} (${interaction.guild.members.cache.get(interaction.member.id).id}) summonet Auto Ban rules list.`);
                 });
                 break;
         }
