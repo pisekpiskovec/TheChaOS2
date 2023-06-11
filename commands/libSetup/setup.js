@@ -64,13 +64,13 @@ module.exports = {
 
         const setupEmbed = new EmbedBuilder()
             .setTitle("The ChaOS Setup")
-            .setColor(botSettings.botAvatarImg.imageColor)
+            .setColor(botSettings.libSetup.accentColor)
             .addFields(
                 { name: "Local developer's name:", value: stringOptionA },
                 { name: "libRole: Enable AutoRole?", value: booleanOptionA ? "True" : "False" },
-                { name: "libRole: AutoRole role:", value: "\@"+roleOption.name},
-                { name: "libRoot: Announcement Channel:", value: "\#"+channelOption.name },
-                { name: "libRoot: Enable AutoBan?", value: booleanOptionB? "True": "False" },
+                { name: "libRole: AutoRole role:", value: "\@" + roleOption.name },
+                { name: "libRoot: Announcement Channel:", value: "\#" + channelOption.name },
+                { name: "libRoot: Enable AutoBan?", value: booleanOptionB ? "True" : "False" },
             )
 
         await interaction.editReply({ embeds: [setupEmbed] });

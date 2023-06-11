@@ -27,7 +27,7 @@ module.exports = {
 A Discord bot written in JavaScript with some useful features (originaly made for Simp Club)`)
             .setFooter({ text: "Made with LOVE by Pisek" })
             .setAuthor({ name: "Písek Pískovec", iconURL: "https://avatars.githubusercontent.com/u/77384152?v=4", url: "https://github.com/pisekpiskovec" })
-            .setColor(botSettings.botAvatarImg.imageColor)
+            .setColor(botSettings.libSetup.accentColor)
             .setThumbnail(client.user.avatarURL())
             .addFields(
                 { name: "The ChaOS Version", value: botSettings.botVersions.botChaOS + ` "${botSettings.botVersions.botCodename}"`, inline: true },

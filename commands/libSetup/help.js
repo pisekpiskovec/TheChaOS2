@@ -11,7 +11,7 @@ module.exports = {
      */
     execute(interaction) {
         const helpEmbed = new EmbedBuilder()
-            .setColor(botSettings.botAvatarImg.imageColor)
+            .setColor(botSettings.libSetup.accentColor)
             .setTitle("Help command")
             .addFields(
                 { name: "**From library:** libSetup", value: '`pong` - Will respond with ping\n`reload` - Reloads the Commander or Event Handling System.\n`about` - About The ChaOS\n`help` - Shows all shell-supported commands.' }
