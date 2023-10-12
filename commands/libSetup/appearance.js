@@ -2,6 +2,7 @@ const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder, Permissi
 const editJsonFile = require("edit-json-file");
 let file = editJsonFile("settings.json");
 var botSettings = require("../../settings.json");
+const getURLBasedOnContentType = require("../../functions/getURLBasedOnContentType");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -53,11 +54,13 @@ module.exports = {
         const stringOptionC = interaction.options.getString("activity") ?? "";
         const stringOptionD = interaction.options.getString("activity_type") ?? "playing";
 
-        function getURLBasedOnContentType() {
+        /*
+        function getURLBasedOnContentTypeO() {
             if (attachmentOption.contentType == "image/jpeg" | "image/png" | "image/webp")
                 return attachmentOption.url
             else return "resources/beta1.jpg"
         }
+        */
 
         function getHash() {
             if (stringOptionA == null) { return "#B57AB8" }
@@ -66,13 +69,13 @@ module.exports = {
             else if (!stringOptionA.startsWith("#") && stringOptionA.length == 6) { return "#" + stringOptionA.toUpperCase() }
         }
 
-        await file.set("libSetup.botAvatarFileURL", getURLBasedOnContentType());
+        await file.set("libSetup.botAvatarFileURL", getURLBasedOnContentType(attachmentOption, "resources/beta1.jpg"));
         await file.set("libSetup.accentColor", getHash());
         await file.set("libSetup.activity", stringOptionC);
         await file.set("libSetup.activityType", stringOptionD);
         await file.save();
 
-        await client.user.setAvatar(getURLBasedOnContentType());
+        await client.user.setAvatar(getURLBasedOnContentType(attachmentOption, "resources/beta1.jpg"));
         if (stringOptionB != "") { await client.user.setUsername(stringOptionB); }
 
 
@@ -103,7 +106,7 @@ module.exports = {
                 { name: "Activity", value: stringOptionC == "" ? "\u200B" : stringOptionC },
                 { name: "Activity Type:", value: stringOptionD },
                 { name: "Username:", value: client.user.username },
-                { name: "Profile Picture URL", value: getURLBasedOnContentType() },
+                { name: "Profile Picture URL", value: getURLBasedOnContentType(attachmentOption, "resources/beta1.jpg") },
             )
             .setImage(client.user.avatarURL())
             .setFooter({ text: "Profile Picture" })

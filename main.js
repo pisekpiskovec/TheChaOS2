@@ -1,10 +1,4 @@
-const {
-  Client,
-  ActivityType,
-  GatewayIntentBits,
-  Partials,
-  Collection,
-} = require("discord.js");
+const { Client, ActivityType, GatewayIntentBits, Partials, Collection } = require("discord.js");
 const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 require("dotenv").config();

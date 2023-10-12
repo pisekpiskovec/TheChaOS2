@@ -29,5 +29,12 @@
     "accentColor": "#B57AB8",
     "activity": "",
     "activityType": "playing"
+  },
+  "plugs": {
+    "plgImaginator": true,
+    "plgPSDH": false,
+    "plgReddit": true,
+    "plgBirthday": true,
+    "plgPixelart": false
   }
 }
