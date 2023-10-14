@@ -9,7 +9,14 @@
     "botCommander": "1.0",
     "botEventHandlingSystem": "2.0",
     "botCyclops": "1.5.2",
-    "botCodename": "Allium"
+    "botCodename": "Allium",
+    "plugs": {
+      "plgImaginator": "1.0",
+      "plgPSDH": "1.0",
+      "plgReddit": "1.0",
+      "plgBirthday": "1.0",
+      "plgPixelart": "1.0"
+    }
   },
   "libRole": {
     "roleAutoToggle": false,
