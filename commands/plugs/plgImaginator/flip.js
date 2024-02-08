@@ -1,4 +1,4 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder, Client, PermissionFlagsBits } = require("discord.js");
+const { ChatInputCommandInteraction, SlashCommandBuilder, Client, PermissionFlagsBits, EmbedBuilder } = require("discord.js");
 var botSettings = require("../../../settings.json");
 
 module.exports = {
@@ -21,17 +21,13 @@ module.exports = {
             await interaction.deferReply();
 
             const defaultText = interaction.options.getString("text");
-            const mirrorText = "";
-
-            for (i = defaultText.length(); i > 0; i--) {
-                mirrorText += defaultText[i];
-            }
+            var mirrorText = defaultText.split("").reverse().join("");
 
             const flipEmbed = new EmbedBuilder()
                 .setTitle("Flip Text")
                 .setColor(botSettings.libSetup.accentColor)
                 .addFields(
-                    { name: "Insserted text:", value: defaultText },
+                    { name: "Inserted text:", value: defaultText },
                     { name: "Mirrored text:", value: mirrorText },
                 )
 
